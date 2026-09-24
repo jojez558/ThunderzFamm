@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Thunderz Family</title>
+    <meta
+      name="description"
+      content="Book Thunderz Family for live performances, choreography, workshops, and brand collaborations."
+    />
+    <meta property="og:title" content="Contact Thunderz Family" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="active-page">
+    <div class="grain"></div>
+    <header>
+      <div class="nav-inner">
+        <a href="/index.html" class="logo"
+          ><span class="dot"></span>THUNDERZ FAMILY</a
+        ><button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <nav aria-label="Primary navigation">
+          <ul id="navList">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/crew.html">Crew</a></li>
+            <li><a href="/merch.html">Merch</a></li>
+            <li><a href="/events.html">Events</a></li>
+            <li><a href="/contact.html" class="active">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="cart-btn" id="cartOpenBtn" aria-label="Open cart">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="9" cy="21" r="1.4" />
+            <circle cx="18" cy="21" r="1.4" />
+            <path
+              d="M2 3h2l2.4 12.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H6"
+            />
+          </svg>
+          Cart <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </header>
+    <main class="page-main">
+      <section class="page-hero">
+        <div class="wrap page-hero-inner">
+          <div>
+            <p class="eyebrow">Let's make something move</p>
+            <h1>START THE <span>CONVERSATION.</span></h1>
+            <p class="page-hero-copy">
+              Tell us what you are building, where it is happening, and how you
+              want people to feel when the music starts.
+            </p>
+          </div>
+          <div class="page-mark" data-page-image="contact">
+            <span class="page-mark-label">REPLY WINDOW / 48H</span>
+          </div>
+        </div>
+      </section>
+      <section class="page-section">
+        <div class="wrap contact-layout">
+          <div class="contact-details">
+            <div>
+              <p class="kicker">Find your format</p>
+              <h2>Let's move together.</h2>
+            </div>
+            <div class="contact-detail">
+              <small>Bookings</small><strong>Live performances</strong>
+              <p>Full crew sets, choreography, and brand collaborations.</p>
+            </div>
+            <div class="contact-detail">
+              <small>Training</small><strong>Workshops & masterclasses</strong>
+              <p>Afro-fusion, Hip-Hop, and movement sessions for all levels.</p>
+            </div>
+            <div class="contact-detail">
+              <small>Base</small><strong>Nairobi, Kenya</strong>
+              <p>Available across East Africa and beyond.</p>
+            </div>
+          </div>
+          <form class="booking" id="bookingForm">
+            <div class="form-grid">
+              <div>
+                <label for="f-name">Name</label
+                ><input
+                  id="f-name"
+                  name="name"
+                  type="text"
+                  placeholder="Your full name"
+                  required
+                />
+              </div>
+              <div>
+                <label for="f-email">Email</label
+                ><input
+                  id="f-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div>
+                <label for="f-service">Service needed</label
+                ><select id="f-service" name="service">
+                  <option>Live Performance</option>
+                  <option>Choreography</option>
+                  <option>Workshop / Masterclass</option>
+                  <option>Brand Collaboration</option>
+                </select>
+              </div>
+              <div>
+                <label for="f-budget">Budget range</label
+                ><select id="f-budget" name="budget">
+                  <option>Under KES 50,000</option>
+                  <option>KES 50,000 - 150,000</option>
+                  <option>KES 150,000 - 500,000</option>
+                  <option>KES 500,000+</option>
+                </select>
+              </div>
+              <div class="full">
+                <label for="f-date">Preferred performance date</label
+                ><input id="f-date" name="date" type="date" />
+              </div>
+              <div class="full">
+                <label for="f-message">Message</label
+                ><textarea
+                  id="f-message"
+                  name="message"
+                  placeholder="Tell us about your event, venue, and audience size"
+                ></textarea>
+              </div>
+            </div>
+            <div class="submit-row">
+              <button type="submit" class="btn btn-solid" id="bookingSubmitBtn">
+                Send request</button
+              ><span class="form-msg" id="bookingMsg"></span>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap footer-inner">
+        <div>
+          <div class="foot-brand">THUNDERZ FAMILY</div>
+          <p class="foot-meta">Nairobi, Kenya · est. 2018</p>
+        </div>
+        <div class="foot-links">
+          <a href="/index.html">Home</a><a href="/about.html">About</a
+          ><a href="/crew.html">Crew</a><a href="/merch.html">Merch</a
+          ><a href="/events.html">Events</a><a href="/privacy.html">Privacy</a
+          ><a href="/terms.html">Terms</a><a href="/admin">Admin</a>
+        </div>
+      </div>
+    </footer>
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+      <div class="cart-head">
+        <h3>Your Cart</h3>
+        <button class="cart-close" id="cartCloseBtn" aria-label="Close cart">
+          &times;
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-foot">
+        <div class="cart-total">
+          <span>Total</span><span id="cartTotal">KES 0</span>
+        </div>
+        <button class="btn btn-solid" id="checkoutBtn">Checkout</button>
+        <p class="note" id="checkoutNote">Secure payment via Paystack.</p>
+      </div>
+    </aside>
+    <script src="/js/main.js"></script>
+    <script src="/js/cart.js"></script>
+  </body>
+</html>

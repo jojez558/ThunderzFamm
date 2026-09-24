@@ -1,0 +1,87 @@
+{
+  "products": [
+    {
+      "id": "vibe-crew",
+      "name": "Vibe Crew Tee",
+      "price": 3500,
+      "sizes": ["S", "M", "L", "XL"],
+      "description": "Heavyweight cotton, screen-printed crew logo.",
+      "stock": { "S": 8, "M": 12, "L": 10, "XL": 5 },
+      "color": "orange"
+    },
+    {
+      "id": "kix-squad",
+      "name": "Kix Squad Tee",
+      "price": 3500,
+      "sizes": ["S", "M", "L", "XL"],
+      "description": "Heavyweight cotton, front chest print.",
+      "stock": { "S": 6, "M": 10, "L": 8, "XL": 4 },
+      "color": "dark"
+    },
+    {
+      "id": "flex-force",
+      "name": "Flex Force Tee",
+      "price": 3500,
+      "sizes": ["S", "M", "L", "XL"],
+      "description": "Heavyweight cotton, back panel print.",
+      "stock": { "S": 5, "M": 9, "L": 7, "XL": 3 },
+      "color": "purple"
+    }
+  ],
+  "crew": [
+    {
+      "id": "vena",
+      "name": "Vena Skinner",
+      "role": "Founder & CEO | Lingala, Dancehall & Amapiano",
+      "color": "orange",
+      "image": "/images/vena.Owner.jpeg"
+    },
+    {
+      "id": "caroline",
+      "name": "Caroline Muthoni Mbiyu",
+      "role": "Secretary General | Hip Hop & Dancehall",
+      "color": "purple",
+      "image": "/images/Caroline.jpeg"
+    },
+    {
+      "id": "beatrice",
+      "name": "Beatrice Kamau",
+      "role": "Treasurer | Bongo & Dancehall",
+      "color": "blue",
+      "image": "/images/Beatrice.jpeg"
+    },
+    {
+      "id": "serah",
+      "name": "Serah \"Kix\"",
+      "role": "Acromaster Specialist | Afro-Beat",
+      "color": "purple"
+    },
+    {
+      "id": "david",
+      "name": "David \"Flex\"",
+      "role": "Technician & Freestyler | Fusion",
+      "color": "blue"
+    }
+  ],
+  "shows": [
+    {
+      "id": "s1",
+      "date": "2026-10-12",
+      "name": "East Africa Dance Showcase",
+      "venue": "Main Stage",
+      "description": "Full crew set, three-genre program"
+    },
+    {
+      "id": "s2",
+      "date": "2026-10-25",
+      "name": "Masterclass: Afro-Fusion Intensive",
+      "venue": "Studio B",
+      "description": "Open workshop, all levels welcome"
+    }
+  ],
+  "bookings": [],
+  "orders": [],
+  "admin": {
+    "passwordHash": "$2a$10$xXy9Zty2MvE7nd9wqajCleFVLFGQJ4Na/lwt8XCyP6lTJAQQw0Wtu"
+  }
+}

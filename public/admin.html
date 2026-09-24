@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thunderz Family — Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body class="admin">
+    <!-- ---------- LOGIN ---------- -->
+    <div class="login-shell" id="loginShell">
+      <div class="login-card">
+        <h1>Admin Login</h1>
+        <p>Thunderz Family content &amp; orders dashboard.</p>
+        <form id="loginForm">
+          <div class="field-row">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" type="password" required autofocus />
+          </div>
+          <div class="field-actions">
+            <button type="submit" class="primary">Log in</button>
+          </div>
+          <p class="msg err" id="loginMsg"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- ---------- DASHBOARD ---------- -->
+    <div class="wrap" id="dashboard" style="display: none">
+      <div class="admin-header">
+        <div class="logo"><span class="dot"></span>THUNDERZ FAMILY ADMIN</div>
+        <div style="display: flex; gap: 16px; align-items: center">
+          <a class="back" href="/">&larr; View site</a>
+          <button id="logoutBtn">Log out</button>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="bookings">Bookings</button>
+        <button class="tab-btn" data-tab="orders">Orders</button>
+        <button class="tab-btn" data-tab="products">Merch</button>
+        <button class="tab-btn" data-tab="crew">Crew</button>
+        <button class="tab-btn" data-tab="shows">Shows</button>
+        <button class="tab-btn" data-tab="videos">Videos</button>
+        <button class="tab-btn" data-tab="page-images">Page Pictures</button>
+        <button class="tab-btn" data-tab="settings">Settings</button>
+      </div>
+
+      <!-- Bookings -->
+      <div class="tab-panel active" id="tab-bookings">
+        <div class="panel-card">
+          <h3>Booking &amp; contact inquiries</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Received</th>
+                <th>Name / Email</th>
+                <th>Details</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="bookingsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Orders -->
+      <div class="tab-panel" id="tab-orders">
+        <div class="panel-card">
+          <h3>Paid orders (from Paystack)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="ordersBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div class="tab-panel" id="tab-products">
+        <div class="panel-card merch-slot-panel">
+          <div class="merch-slot-header">
+            <h3>Merch slots</h3>
+            <span>7 available</span>
+          </div>
+          <div class="merch-slot-grid" id="merchSlotsGrid"></div>
+          <div class="merch-slot-actions">
+            <button type="button" class="primary" id="addMerchSlotBtn">Add another slot</button>
+            <button type="button" class="cancel" id="saveMerchSlotsBtn">Save all changes</button>
+          </div>
+          <p class="msg" id="productMsg"></p>
+        </div>
+      </div>
+
+      <!-- Crew -->
+      <div class="tab-panel" id="tab-crew">
+        <div class="panel-card merch-slot-panel">
+          <div class="merch-slot-header">
+            <h3>Crew slots</h3>
+            <span>7 available</span>
+          </div>
+          <div class="merch-slot-grid" id="crewSlotsGrid"></div>
+          <div class="merch-slot-actions">
+            <button type="button" class="primary" id="addCrewSlotBtn">Add another slot</button>
+            <button type="button" class="cancel" id="saveCrewSlotsBtn">Save all changes</button>
+          </div>
+          <p class="msg" id="crewMsg"></p>
+        </div>
+      </div>
+
+      <!-- Shows -->
+      <div class="tab-panel" id="tab-shows">
+        <div class="admin-grid">
+          <div class="panel-card">
+            <h3 id="showFormTitle">Add show / workshop</h3>
+            <form id="showForm">
+              <input type="hidden" id="showId" />
+              <div class="field-row">
+                <label for="showDate">Date</label
+                ><input id="showDate" type="date" required />
+              </div>
+              <div class="field-row">
+                <label for="showName">Name</label
+                ><input id="showName" required />
+              </div>
+              <div class="field-row">
+                <label for="showVenue">Venue / role</label
+                ><input id="showVenue" required />
+              </div>
+              <div class="field-row">
+                <label for="showDescription">Description</label
+                ><textarea id="showDescription" rows="2"></textarea>
+              </div>
+              <div class="field-actions">
+                <button type="submit" class="primary" id="showSubmitBtn">
+                  Add show
+                </button>
+                <button
+                  type="button"
+                  class="cancel"
+                  id="showCancelBtn"
+                  style="display: none"
+                >
+                  Cancel edit
+                </button>
+              </div>
+              <p class="msg" id="showMsg"></p>
+            </form>
+          </div>
+          <div class="panel-card">
+            <h3>Upcoming schedule</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Venue</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="showsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="tab-panel" id="tab-videos">
+        <div class="admin-grid">
+          <div class="panel-card">
+            <h3 id="videoFormTitle">Add reel video</h3>
+            <form id="videoForm">
+              <input type="hidden" id="videoId" />
+              <div class="field-row">
+                <label for="videoTitle">Title</label>
+                <input id="videoTitle" required placeholder="Nairobi Warehouse Session" />
+              </div>
+              <div class="field-row">
+                <label for="videoUrl">YouTube or Vimeo URL</label>
+                <input id="videoUrl" type="url" required placeholder="https://www.youtube.com/watch?v=..." />
+              </div>
+              <div class="field-row">
+                <label for="videoDescription">Description</label>
+                <textarea id="videoDescription" rows="3" placeholder="A quick look at the crew in motion."></textarea>
+              </div>
+              <div class="field-actions">
+                <button type="submit" class="primary" id="videoSubmitBtn">Add video</button>
+                <button type="button" class="cancel" id="videoCancelBtn" style="display:none">Cancel edit</button>
+              </div>
+              <p class="msg" id="videoMsg"></p>
+            </form>
+          </div>
+          <div class="panel-card">
+            <h3>Watching reel</h3>
+            <table>
+              <thead><tr><th>Title</th><th>URL</th><th></th></tr></thead>
+              <tbody id="videosBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="tab-panel" id="tab-page-images">
+        <div class="panel-card merch-slot-panel">
+          <div class="merch-slot-header">
+            <h3>Public page pictures</h3>
+            <span>Stored in MongoDB</span>
+          </div>
+          <div class="page-image-admin-grid" id="pageImagesGrid"></div>
+          <p class="msg" id="pageImagesMsg"></p>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="tab-panel" id="tab-settings">
+        <div class="panel-card" style="max-width: 420px">
+          <h3>Change admin password</h3>
+          <form id="passwordForm">
+            <div class="field-row">
+              <label for="currentPassword">Current password</label
+              ><input id="currentPassword" type="password" required />
+            </div>
+            <div class="field-row">
+              <label for="newPassword">New password (min 8 characters)</label
+              ><input id="newPassword" type="password" minlength="8" required />
+            </div>
+            <div class="field-actions">
+              <button type="submit" class="primary">Update password</button>
+            </div>
+            <p class="msg" id="passwordMsg"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
