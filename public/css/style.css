@@ -19,6 +19,7 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -200,11 +201,13 @@ nav a.active {
     top: 64px;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
+    height: calc(100dvh - 64px);
     background: var(--bg);
     flex-direction: column;
     gap: 0;
     padding: 12px 28px 40px;
+    overflow-y: auto;
     transform: translateX(100%);
     transition: transform 0.35s ease;
   }
@@ -246,9 +249,9 @@ nav a.active {
   overflow: hidden;
 }
 .hero-visual.has-page-image {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
   background-color: var(--bg-raised);
   clip-path: polygon(12% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 12%);
 }
@@ -650,6 +653,7 @@ select {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
   filter: saturate(1.08) contrast(1.05);
 }
@@ -1145,9 +1149,9 @@ footer {
   clip-path: polygon(12% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 12%);
 }
 .page-mark.has-page-image {
-  background-size: 100% 100%, 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center, center;
+  background-position: center top;
   background-color: var(--bg-raised);
   clip-path: polygon(12% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 12%);
 }
@@ -1299,8 +1303,93 @@ footer {
     gap: 38px;
   }
   .page-mark {
-    justify-self: start;
-    width: min(100%, 300px);
+    order: -1;
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 2 / 3;
+  }
+
+  .page-mark.has-page-image {
+    background-size: cover;
+    background-position: center top !important;
+  }
+
+  .merch-page .page-mark {
+    order: 0;
+    aspect-ratio: 9 / 10;
+  }
+
+  .page-hero-inner {
+    display: block;
+    position: relative;
+  }
+
+  .page-mark.has-page-image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 9, 12, 0.9) 0%,
+      rgba(10, 9, 12, 0.7) 55%,
+      transparent 88%
+    );
+  }
+
+  .page-hero-inner > div:first-child {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    left: auto;
+    z-index: 2;
+    width: min(82%, 215px);
+    max-width: 215px;
+    padding: 0;
+    background: none;
+    clip-path: none;
+    text-align: right;
+  }
+
+  .page-hero h1 {
+    color: #fff;
+    font-size: clamp(18px, 5vw, 24px);
+    font-family: "Work Sans", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    line-height: 0.92;
+    max-width: 100%;
+    white-space: normal;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+  }
+
+  .page-hero h1 span {
+    color: var(--orange);
+  }
+
+  .page-hero-copy {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 100%;
+    font-family: "Work Sans", sans-serif;
+    font-size: 10px;
+    line-height: 1.3;
+    margin-top: 8px;
+    white-space: normal;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+    text-align: right;
+  }
+
+  .eyebrow {
+    color: #fff;
+    font-size: 11px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  }
+
+  .page-mark-label {
+    top: auto;
+    bottom: 18px;
   }
   .feature-grid,
   .crew-page-grid,
@@ -1310,5 +1399,80 @@ footer {
   .page-cta {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-hero {
+    padding-top: 24px;
+    padding-bottom: 58px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(18px, 5.5vw, 24px);
+    max-width: 100%;
+    line-height: 0.92;
+    white-space: normal;
+  }
+
+  .page-hero-copy {
+    font-size: 10px;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .page-main {
+    padding-bottom: 64px;
+  }
+
+  .contact-page .page-hero h1 {
+    font-size: clamp(22px, 6.8vw, 30px);
+    max-width: 100%;
+  }
+
+  .contact-page .page-hero h1 span {
+    display: block;
+  }
+
+  .crew-page .page-hero {
+    padding-top: 24px;
+    padding-bottom: 58px;
+  }
+
+  .crew-page .page-hero-inner {
+    gap: 28px;
+  }
+
+  .crew-page .page-mark {
+    order: -1;
+    aspect-ratio: 5 / 6;
+    clip-path: polygon(8% 0, 100% 0, 100% 90%, 92% 100%, 0 100%, 0 10%);
+  }
+
+  body:has([data-page-image="about"]) .page-mark {
+    aspect-ratio: 2 / 3;
+  }
+
+  body:has([data-page-image="merch"]) .page-mark {
+    aspect-ratio: 9 / 10;
+  }
+
+  body:has([data-page-image="events"]) .page-mark {
+    aspect-ratio: 12 / 13;
+  }
+
+  body:has([data-page-image="contact"]) .page-mark {
+    aspect-ratio: 4 / 5;
+  }
+
+  .crew-page .page-hero h1 {
+    font-size: clamp(24px, 7vw, 32px);
+    max-width: 100%;
+  }
+
+  .crew-page .page-hero-copy {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-top: 18px;
   }
 }
